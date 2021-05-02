@@ -18,9 +18,12 @@ mongoose
 
   })
 
+  // eslint-disable-next-line no-console
   .then(() => console.log('Connected to db successfully ...'))
+  // eslint-disable-next-line no-console
   .catch((err) => console.log('Error has occured while connecting to db', err));
 
 module.exports = app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`Listening on port:${port}`);
 });
