@@ -1,0 +1,10 @@
+.navigation {
+    height:12vh;
+}
+.sigup{
+    margin: 22px 50px 22px 0px;
+    align-self: flex-end;
+}
+.MuiAppBar-colorPrimary {
+    background-color: #1976d2 !important;
+}
