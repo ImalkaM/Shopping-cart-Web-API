@@ -2,9 +2,17 @@
     height:12vh;
 }
 .sigup{
-    margin: 22px 50px 22px 0px;
-    align-self: flex-end;
+    margin-left: auto;
 }
 .MuiAppBar-colorPrimary {
     background-color: #1976d2 !important;
+}
+.MuiToolbar-regular {
+    padding: 22px !important;
+}
+.ShoppingCartIcon {
+    margin-left: 20px !important;
+}
+.CartIcon {
+    color: white !important;
 }
