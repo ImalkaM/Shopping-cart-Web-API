@@ -7,42 +7,33 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import MealPhoto from "../../common/assets/images/meal.png";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
-import IconButton from "@material-ui/core/IconButton";
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import { useTheme } from '@material-ui/core/styles';
+import Button from "@material-ui/core/Button";
+// import IconButton from "@material-ui/core/IconButton";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+// import { Tooltip, OverlayTrigger } from "react-bootstrap";
+import "./style.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-    '&:hover': {
-      backgroundColor: "#E5E7E9 ",
-    }
+    "&:hover": {
+      backgroundColor: "#F2F3F4",
+      border: "-1px solid rgba(0, 0, 0, 0.50)",
+    },
   },
-  // card : {
-  //   transition: theme.transitions.create(["background", "background-color"], {
-  //     duration: theme.transitions.duration.complex,
-  //   }),
-  //   "&:hover": {
-      // backgroundColor: "#1B4F72",
-  //   },
-  // },
   media: {
     height: 140,
   },
-  addToCart_btn:{
+  addToCart_btn: {
     float: "right",
-    '&:hover': {
-      color: '#1976d2'
-    }
-  },
-  overrides: {
-    MuiCardActions: {
-      root: {
-        display: "block"
-      },
+    color: "#626567",
+    marginBottom: 10,
+    "&:hover": {
+      color: "#000",
     },
+  },
+  cardAction: {
+    display: "block",
   },
 }));
 
@@ -50,7 +41,7 @@ export default function View() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} variant="outlined">
+    <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -67,13 +58,24 @@ export default function View() {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="AddShoppingCartIcon" className={classes.addToCart_btn} >
-          <AddShoppingCartIcon/>
-        </IconButton>
+      <CardActions className={classes.cardAction}>
+        {/* <OverlayTrigger
+          overlay={<Tooltip id="tooltip-disabled">Add to cart</Tooltip>}
+          placement="bottom"
+        >
+          <IconButton
+            aria-label="AddShoppingCartIcon"
+            className={classes.addToCart_btn}
+          >
+            <AddShoppingCartIcon />
+          </IconButton>
+        </OverlayTrigger> */} 
+        <Button
+          className={classes.addToCart_btn}
+          startIcon={<AddShoppingCartIcon />}
+        >
+          add to cart
+        </Button>
       </CardActions>
     </Card>
   );
