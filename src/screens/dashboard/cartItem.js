@@ -15,7 +15,6 @@ import "./style.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
     "&:hover": {
       backgroundColor: "#F2F3F4",
       border: "-1px solid rgba(0, 0, 0, 0.50)",
