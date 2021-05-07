@@ -16,7 +16,7 @@ export default function PersistentDrawerLeft() {
             <h2>Shop Cart</h2>
           </div>
           <div className="sigup">
-            <Button variant="outline-light">Sing in</Button>
+            <Button variant="outline-light" href="/login">Sing in</Button>
             <IconButton aria-label="ShoppingCartIcon" className="ShoppingCartIcon" >
               <ShoppingCartIcon className="CartIcon"  fontSize="medium" />
             </IconButton>
