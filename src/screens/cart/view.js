@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
   itemCard: {
     display: 'flex',
-    marginBottom: theme.spacing(7)
+    marginBottom: theme.spacing(1)
   },
   details: {
     display: 'flex',
@@ -55,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cover: {
     width: 200,
+    height: 155
   },
   controls: {
     display: 'flex',
