@@ -1,28 +1,20 @@
 import React, { Fragment } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-// import AppBar from "@material-ui/core/AppBar";
-// import Toolbar from "@material-ui/core/Toolbar";
 import Paper from "@material-ui/core/Paper";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import Button from "@material-ui/core/Button";
-// import Link from '@material-ui/core/Link';
 import Typography from "@material-ui/core/Typography";
 import AddressForm from "./address";
 import PaymentForm from "./payment";
 import Review from "./review";
 import Dialog from "@material-ui/core/Dialog";
-// import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
-// import DialogTitle from "@material-ui/core/DialogTitle";
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: "relative",
-  },
   layout: {
     width: "auto",
     marginLeft: theme.spacing(2),
@@ -71,10 +63,10 @@ function getStepContent(step) {
   }
 }
 
-export default function Checkout() {
+export default function Checkout(props) {
+
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-  const [open, setOpen] = React.useState(false);
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -84,20 +76,11 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <Fragment>
       <div>
         <CssBaseline />
-        <Dialog open={true} onClose={handleClose} maxWidth="lg">
-          {/* <DialogTitle>{"Use Google's location service?"}</DialogTitle> */}
+        <Dialog open={props.open} onClose={props.onClose} maxWidth="lg">
           <DialogContent>
             <DialogContentText>
               <main className={classes.layout}>

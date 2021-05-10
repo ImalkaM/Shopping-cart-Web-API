@@ -10,7 +10,7 @@ import Shipping from "../../common/shipping/checkout"
 import "./style.css"
 
 
-export default function View(){
+export default function View(props){
 
     const [state, setState] = React.useState({age: '', name: 'hai',});
     const handleChange = (event) => {
@@ -24,7 +24,11 @@ export default function View(){
     return (
         <Fragment>
             <Navbar />
-            <Shipping />
+            <Shipping  
+                open={props.state.shippindDetailPopUp} 
+                UsershippingDetails={props.state.UsershippingDetails} 
+                onClose={props.handleClose}
+            />
             <Container maxWidth="lg">
                 <div className="root">
                     <Grid container spacing={3}>
@@ -128,7 +132,7 @@ export default function View(){
                                     </tr>
                                 </table>
                                 <div className="buttonArea" >
-                                    <Button className="buttonBuy" variant="outlined"> Buy now </Button> 
+                                    <Button className="buttonBuy" variant="outlined" onClick={props.handlePay}> Buy now </Button> 
                                 </div>
                                 <div className="buttonArea" >
                                     <Button className="buttonAdd2cart" variant="outlined" href="cart"> Add to cart </Button> 

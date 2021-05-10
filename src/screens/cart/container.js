@@ -3,9 +3,34 @@ import View from "./view"
 
 class Checkout extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+           UsershippingDetails: {},
+           shippindDetailPopUp: false,
+        };
+    }
+
+    handlePay = () => {
+        // if(Object.keys(this.state.shippingDetails).length === 0){ }
+        this.setState({
+            shippindDetailPopUp: true
+        });
+    }
+
+    handleClose = () => {
+        this.setState({
+            shippindDetailPopUp: false
+        });
+    }
+
     render(){
         return(
-            <View />
+            <View 
+                state={this.state}
+                handlePay={this.handlePay}
+                handleClose={this.handleClose}
+            />
         );
     }
 } 

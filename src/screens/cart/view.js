@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -9,8 +8,9 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import Grid from "@material-ui/core/Grid";
 import Navbar from "../../common/navbar";
 import { Container } from "@material-ui/core"
-import Pic from "../../common/assets/images/meal.png"
 import { DropdownButton, Dropdown, Button } from "react-bootstrap"
+import Pic from "../../common/assets/images/meal.png"
+import Shipping from "../../common/shipping/checkout"
 import "./style.css"
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -77,12 +77,17 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function View() {
+export default function View(props) {
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <Navbar />
+      <Shipping 
+        open={props.state.shippindDetailPopUp} 
+        UsershippingDetails={props.state.UsershippingDetails} 
+        onClose={props.handleClose}
+      />
       <Container maxWidth="lg" >
         <div className={classes.root}>
           <Grid xs={12} sm={12} md={12} lg={12}>
@@ -200,6 +205,7 @@ export default function View() {
                   <Button
                     className={classes.addToCart_btn}
                     startIcon={<AddShoppingCartIcon />}
+                    onClick={props.handlePay}
                   >
                     Pay
                   </Button>
