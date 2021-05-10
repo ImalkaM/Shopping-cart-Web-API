@@ -2,3 +2,72 @@
     flex-grow: 1;
     padding-top: 96PX;
 }
+.DescriptionArea {
+    padding: 5px 20px 20px 70px;
+    padding-top: 10vh;
+}
+.itemName{
+    font-family: sans-serif;
+    letter-spacing: 0.35px;
+    font-size:22px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.itemPrice{
+    font-family: sans-serif;
+    letter-spacing: 0.35px;
+    font-size:22px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.itemDiscount {
+    color:#258635; 
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.itemTaxDes {
+    color:#595959;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.itemDescription {
+    margin-top: 15px;
+    font-family: sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.formControl {
+    margin: 2px;
+    width: 100%;
+    padding: 10px !important;
+}
+.selctArea {
+    width: 100%;
+}
+.buttonArea {
+    padding: 10px
+}
+.buttonBuy {
+    width: 100%;
+    border-radius: 17px !important;
+    color:black !important;
+    background-color: white !important;
+}
+.buttonBuy:hover {
+    color: black;
+    background-color: black;
+    border: 1px solid;
+}
+.buttonAdd2cart {
+    width: 100%;
+    border-radius: 17px !important;
+    color:white !important;
+    background-color: black !important;
+}
+.w-100 {
+    padding-top: 10vh;
+}
