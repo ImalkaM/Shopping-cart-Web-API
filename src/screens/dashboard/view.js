@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   welcomMessage: {
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(7),
+    paddingBottom: theme.spacing(7),
     textAlign: "left",
     color: theme.palette.text.secondary,
   }
@@ -33,7 +33,9 @@ export default function View() {
       <Container maxWidth="lg">
         <Typography component="div">
           <div className={classes.root}>
-            <Typography variant="h4" className={classes.welcomMessage}> Welcome to Shop, Jhone! </Typography> 
+            <Grid xs={12} sm={12} md={12} lg={12}>
+              <Typography variant="h4" className={classes.welcomMessage}> Welcome to Shop, Jhone! </Typography> 
+            </Grid>
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6} md={4} lg={3}>
                 <CartItem />

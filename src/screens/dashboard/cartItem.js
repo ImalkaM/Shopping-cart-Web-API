@@ -14,12 +14,6 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import "./style.css";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    "&:hover": {
-      backgroundColor: "#F2F3F4",
-      border: "-1px solid rgba(0, 0, 0, 0.50)",
-    },
-  },
   media: {
     height: 140,
   },
@@ -34,13 +28,16 @@ const useStyles = makeStyles((theme) => ({
   cardAction: {
     display: "block",
   },
+  itemName: {
+    fontWeight: 300
+  }
 }));
 
 export default function View() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className="itemCard" >
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -48,12 +45,15 @@ export default function View() {
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h6" className={classes.itemName}>
             Lizard
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" component="p" style={{ marginBottom:"0.35em"}}>
             Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            species.
+          </Typography>
+          <Typography variant="h6" color="initial" component="p">
+            USD 29.75
           </Typography>
         </CardContent>
       </CardActionArea>
