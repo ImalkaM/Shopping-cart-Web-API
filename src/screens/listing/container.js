@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import View from "./view"
 
-class Register extends Component {
+class listing extends Component {
 
     render(){
         return(
@@ -10,4 +10,4 @@ class Register extends Component {
     }
 } 
 
-export default Register;
+export default listing;

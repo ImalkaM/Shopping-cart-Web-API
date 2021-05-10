@@ -29,7 +29,7 @@ export default function PersistentDrawerLeft() {
           </div>
           <div className="sigup">
             <Button variant="outline-light" href="/login">Sing in</Button>
-            <IconButton aria-label="ShoppingCartIcon" className="ShoppingCartIcon" >
+            <IconButton aria-label="ShoppingCartIcon" className="ShoppingCartIcon" href="/cart">
               <StyledBadge badgeContent={1} color="secondary">
                 <ShoppingCartIcon className="CartIcon"  fontSize="medium" />
               </StyledBadge>

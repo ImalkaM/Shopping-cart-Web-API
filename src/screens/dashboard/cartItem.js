@@ -8,9 +8,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import MealPhoto from "../../common/assets/images/meal.png";
 import Button from "@material-ui/core/Button";
-// import IconButton from "@material-ui/core/IconButton";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-// import { Tooltip, OverlayTrigger } from "react-bootstrap";
 import "./style.css";
 
 const useStyles = makeStyles((theme) => ({

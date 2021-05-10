@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import View  from "./view"
 
-class Dashboard extends Component() {
+class Dashboard extends Component{
     render() {
         return(
             <View />

@@ -1,24 +1,17 @@
 import React from "react";
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import MealPhoto from "../../common/assets/images/meal.png";
-// import Button from "@material-ui/core/Button";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import Grid from "@material-ui/core/Grid";
 import Navbar from "../../common/navbar";
-import IconButton from '@material-ui/core/IconButton';
-import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import SkipNextIcon from '@material-ui/icons/SkipNext';
 import { Container } from "@material-ui/core"
 import Pic from "../../common/assets/images/meal.png"
 import { DropdownButton, Dropdown, Button } from "react-bootstrap"
-
+import "./style.css"
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -31,8 +24,7 @@ const useStyles = makeStyles((theme) => ({
     height: 140,
   },
   addToCart_btn: {
-    float: "right",
-    color: "#626567",
+    width: "100%",
     marginBottom: 10,
     "&:hover": {
       color: "#000",
@@ -41,9 +33,9 @@ const useStyles = makeStyles((theme) => ({
   cardAction: {
     display: "block",
   },
-  itemName: {
-    fontWeight: 300
-  },
+  // itemName: {
+  //   fontWeight: 300
+  // },
   welcomMessage: {
     paddingTop: theme.spacing(7),
     paddingBottom: theme.spacing(7),
@@ -73,13 +65,20 @@ const useStyles = makeStyles((theme) => ({
   playIcon: {
     height: 38,
     width: 38,
+  },
+  table: {
+    width: "100%"
+  },
+  tableRow: {
+    float:"right"
+  },
+  subtotal: {
+    fontWeight: 650
   }
-
 }));
 
 export default function View() {
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
     <React.Fragment>
@@ -107,9 +106,9 @@ export default function View() {
                       <Grid item xs={12} sm={4} md={4} lg={4}>
                         <div style={{ textAlign: "center" }}>
                           <DropdownButton id="dropdown-basic-button" title="Quantity" variant="secondary">
-                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                            <Dropdown.Item href="#/action-1">1</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">2</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">3</Dropdown.Item>
                           </DropdownButton>
                         </div>
                       </Grid>
@@ -142,9 +141,9 @@ export default function View() {
                       <Grid item xs={12} sm={4} md={4} lg={4}>
                         <div style={{ textAlign: "center" }}>
                           <DropdownButton id="dropdown-basic-button" title="Quantity" variant="secondary">
-                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                            <Dropdown.Item href="#/action-1">1</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">2</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">3</Dropdown.Item>
                           </DropdownButton>
                         </div>
                       </Grid>
@@ -164,35 +163,48 @@ export default function View() {
 
             {/* right side */}
             <Grid item xs={12} sm={4} md={4} lg={4}>
-              <Card>
-                <CardActionArea>
-                  <CardMedia
-                    className={classes.media}
-                    image={MealPhoto}
-                    title="Contemplative Reptile"
-                  />
+              <div className="pay">
+                {/* <CardActionArea> */}
                   <CardContent>
-                    <Typography gutterBottom variant="h6" className={classes.itemName}>
-                      Lizard
-                                </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p" style={{ marginBottom: "0.35em" }}>
-                      Lizards are a widespread group of squamate reptiles, with over 6,000
-                      species.
-                                </Typography>
-                    <Typography variant="h6" color="initial" component="p">
-                      USD 29.75
-                                </Typography>
+                    <table className={classes.table}>
+                      <tr>
+                      <td> <span>Item(s) total </span></td>
+                      <td  className={classes.tableRow}> <span>USD 59.09</span> </td>
+                      </tr>
+                      <tr>
+                      <td> <span>Discount</span></td>
+                      <td className={classes.tableRow}> <span>-USD 29.75</span> </td>
+                      </tr>
+                    </table>
+                    <hr />
+                    <table className={classes.table}>
+                      <tr>
+                      <td> <span className={classes.subtotal} >Subtotal</span></td>
+                      <td  className={classes.tableRow}> <span>USD 59.09</span> </td>
+                      </tr>
+                      <tr>
+                      <td> <span>Shipping</span></td>
+                      <td className={classes.tableRow}> <span>+USD 29.75</span> </td>
+                      </tr>
+                    </table>
+                    <hr />
+                    <table className={classes.table}>
+                      <tr>
+                      <td> <span className={classes.subtotal} >Total (1 Item)</span></td>
+                      <td  className={classes.tableRow}> <Typography variant="h6" color="initial" component="p">USD 29.75</Typography> </td>
+                      </tr>
+                    </table>
                   </CardContent>
-                </CardActionArea>
+                {/* </CardActionArea> */}
                 <CardActions className={classes.cardAction}>
                   <Button
                     className={classes.addToCart_btn}
                     startIcon={<AddShoppingCartIcon />}
                   >
-                    add to cart
+                    Pay
                   </Button>
                 </CardActions>
-              </Card>
+              </div>
             </Grid>
           </Grid>
         </div>
