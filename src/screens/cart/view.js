@@ -33,12 +33,10 @@ const useStyles = makeStyles((theme) => ({
   cardAction: {
     display: "block",
   },
-  // itemName: {
-  //   fontWeight: 300
-  // },
+
   welcomMessage: {
     paddingTop: theme.spacing(7),
-    paddingBottom: theme.spacing(7),
+    paddingBottom: theme.spacing(1),
     textAlign: "left",
     color: theme.palette.text.secondary,
   },
