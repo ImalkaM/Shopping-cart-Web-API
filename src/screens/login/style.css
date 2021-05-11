@@ -1,7 +1,6 @@
 .makeStyles-submit-4 {
     background-color: #1976d2 !important;
 }
-
 .loginbtn{
     background-color: #d13b3b;
     border: 0;
@@ -15,7 +14,6 @@
 .loginbtn:hover{
     background-color:  #333;
 }
-
 .login-fb {
     position: relative;
     display: block;
@@ -28,8 +26,6 @@
     font-size: 16px;
     height: 40px;
 }
-
-
 .no-accont {
     position: relative;
     display: block;
@@ -37,15 +33,13 @@
     text-align: center;
     padding: 0 34px;
   }
-  
-  .no-accont p {
-    font-size: 14px;
-    line-height: 29px;
-    color: #313030;
-  }
-  
-  .no-accont p a{
-    font-weight: 700;
-    color: #0087D3;
-  }
+.no-accont p {
+font-size: 14px;
+line-height: 29px;
+color: #313030;
+}
+.no-accont p a{
+font-weight: 700;
+color: #0087D3;
+}
 

@@ -24,16 +24,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     paddingTop: 96,
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: "#28B463",
-  },
   form: {
     width: "100%", 
     marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
   },
 }));
 
@@ -45,61 +38,10 @@ export default function SignIn() {
       <Navbar />
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
           <form className={classes.form}>
-            {/* <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid> */}
-
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Username</Form.Label>
               <Form.Control type="text" />
@@ -108,9 +50,9 @@ export default function SignIn() {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" />
             </Form.Group>
-            <Form.Group controlId="formBasicCheckbox">
+            {/* <Form.Group controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Keep Me Logged in" />
-            </Form.Group>
+            </Form.Group> */}
             <Button variant="primary" size="sm" className="loginbtn">
               Log in
             </Button>
@@ -119,11 +61,8 @@ export default function SignIn() {
               Log in with Facebook
             </Button>
             <div className="no-accont"><p>Don't have an account ? Get your <a href="/register">Free account Now</a></p></div>
-            {/* <div className="no-accont"><a href="/">Forgotten password?</a></div> */}
           </form>
         </div>
-        <Box mt={8}>
-        </Box>
       </Container>
     </div>
   );

@@ -16,3 +16,12 @@
 .CartIcon {
     color: white !important;
 }
+.login-btn {
+    background-color: #1976d2 ;
+    color: white !important;
+
+}
+.register-btn {
+    margin-left: 10px !important;
+    color: white !important;
+}
