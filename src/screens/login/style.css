@@ -1,3 +1,45 @@
 .makeStyles-submit-4 {
     background-color: #1976d2 !important;
 }
+.loginbtn{
+    background-color: #d13b3b;
+    border: 0;
+    font-size: 19px;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+}
+.loginbtn:hover{
+    background-color:  #333;
+}
+.login-fb {
+    position: relative;
+    display: block;
+    width: 100%;
+    background-color: #4867aa;
+    background-image:  url(../../common/assets/images/fblogin.png);
+    background-repeat: no-repeat;
+    font-weight: 600;
+    background-position: 26% center;
+    font-size: 16px;
+    height: 40px;
+}
+.no-accont {
+    position: relative;
+    display: block;
+    margin-top: 33px;
+    text-align: center;
+    padding: 0 34px;
+  }
+.no-accont p {
+font-size: 14px;
+line-height: 29px;
+color: #313030;
+}
+.no-accont p a{
+font-weight: 700;
+color: #0087D3;
+}
+

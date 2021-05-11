@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
-import { Button } from "react-bootstrap";
+import { Button } from "@material-ui/core";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 
@@ -28,7 +28,8 @@ export default function PersistentDrawerLeft() {
             <h2>Shop Cart</h2>
           </div>
           <div className="sigup">
-            <Button variant="outline-light" href="/login">Sing in</Button>
+            <Button href="/login" className="login-btn" >Sing in</Button>
+            <Button href="/register" className="register-btn" variant="outlined">Sing up</Button>
             <IconButton aria-label="ShoppingCartIcon" className="ShoppingCartIcon" href="/cart">
               <StyledBadge badgeContent={1} color="secondary">
                 <ShoppingCartIcon className="CartIcon"  fontSize="medium" />
