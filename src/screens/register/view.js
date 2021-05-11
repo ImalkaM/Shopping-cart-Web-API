@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignInSide() {
+export default function SignInSide(props) {
   const classes = useStyles();
 
   return (
@@ -61,13 +61,13 @@ export default function SignInSide() {
                       <Grid xs={12} sm={12} md={6} lg={6}>
                         <Form.Group>
                           <Form.Label>First Name</Form.Label>
-                          <Form.Control type="text" />
+                          <Form.Control type="text" name="firstname" onChange={props.handleRegisterForm} value={props.state.firstname} />
                         </Form.Group>
                       </Grid>
                       <Grid xs={12} sm={12} md={6} lg={6}>
                         <Form.Group>
                           <Form.Label>Last Name</Form.Label>
-                          <Form.Control type="text" />
+                          <Form.Control type="text" name="lastname" onChange={props.handleRegisterForm} value={props.state.lastname} />
                         </Form.Group>
                       </Grid>
                     </Grid>
@@ -75,31 +75,31 @@ export default function SignInSide() {
                   <Form.Row>
                     <Form.Group as={Col} controlId="" column md={12}>
                       <Form.Label>Mobile</Form.Label>
-                      <Form.Control type="text" />
+                      <Form.Control type="text" name="mobile" onChange={props.handleRegisterForm} value={props.state.mobile}/>
                     </Form.Group>
                   </Form.Row>
                   <Form.Row>
                     <Form.Group as={Col} controlId="" column md={12}>
                       <Form.Label>Email Address</Form.Label>
-                      <Form.Control type="email" />
+                      <Form.Control type="email" name="email" onChange={props.handleRegisterForm} value={props.state.email}/>
                     </Form.Group>
                   </Form.Row>
                   <Form.Row>
                     <Form.Group as={Col} controlId="" column md={12}>
                       <Form.Label>Password</Form.Label>
-                      <Form.Control type="password" />
+                      <Form.Control type="password" name="password" onChange={props.handleRegisterForm} value={props.state.password} />
                     </Form.Group>
                   </Form.Row>
                   <Form.Row>
                     <Form.Group as={Col} controlId="" column md={12}>
                       <Form.Label>Confirm Password</Form.Label>
-                      <Form.Control type="password" />
+                      <Form.Control type="password" name="conpass" onChange={props.handleRegisterForm} value={props.state.conpass}/>
                     </Form.Group>
                   </Form.Row>
                 </div>
               </div>
             </div>
-            <Button variant="primary" size="lg" className="loginbtn">
+            <Button variant="primary" size="lg" className="loginbtn" onClick={props.registerNow}>
               Register Now
             </Button>
             <div className="no-accont text-center">
