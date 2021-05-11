@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import axios from 'axios';
 import View from "./view"
 
 class Register extends Component {
@@ -53,12 +54,28 @@ class Register extends Component {
         }
 
         if(this.state.firstname !== "" && this.state.lastname !== "" && this.state.mobile !== "" && this.state.email !== "" && this.state.password !== "" && this.state.conpass !== "" ) {
-            alert("ok");
-            this.props.history.push("/login");
+            axios.post('http://localhost:5000/api/users', {
+                userName: this.state.firstname+ " " +this.state.lastname,
+                email: this.state.email,
+                password: this.state.password
+            })
+            .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              })
+            .then(res => {
+                console.log(res.message)
+                this.props.history.push("/login");
+            })
         }
+        // axios.get('https://api.github.com/user', {
+        //     headers: {
+        //         'Authorization': `token ${access_token}`
+        //     }
+        // })
     }
-
-    
     render(){
         return(
             <View 
