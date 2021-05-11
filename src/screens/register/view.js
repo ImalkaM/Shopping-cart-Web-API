@@ -56,7 +56,7 @@ export default function SignInSide(props) {
             <div className="hm-col2">
               <div className="register-form-wrap">
                 <div className="l-form">
-                  <Form.Row>
+                  {/* <Form.Row>
                     <Grid container>
                       <Grid xs={12} sm={12} md={6} lg={6}>
                         <Form.Group>
@@ -71,6 +71,12 @@ export default function SignInSide(props) {
                         </Form.Group>
                       </Grid>
                     </Grid>
+                  </Form.Row> */}
+                  <Form.Row>
+                  <Form.Group>
+                      <Form.Label>User Name</Form.Label>
+                      <Form.Control type="text" name="username" onChange={props.handleRegisterForm} value={props.state.username} />
+                    </Form.Group>
                   </Form.Row>
                   <Form.Row>
                     <Form.Group as={Col} controlId="" column md={12}>

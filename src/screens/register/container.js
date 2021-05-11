@@ -7,8 +7,7 @@ class Register extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstname: "",
-            lastname: "",
+            username:"",
             mobile: "",
             email: "",
             password: "",
@@ -24,12 +23,8 @@ class Register extends Component {
 
     registerNow = () => {
 
-        if(this.state.firstname === "") {
-            alert("First name is required");
-            return
-        }
-        if(this.state.lastname === "") {
-            alert("Last name is required");
+        if(this.state.username === "") {
+            alert("User name is required");
             return
         }
         if(this.state.mobile === "") {
@@ -59,14 +54,9 @@ class Register extends Component {
                 email: this.state.email,
                 password: this.state.password
             })
-            .then(function (response) {
-                console.log(response);
-              })
-              .catch(function (error) {
-                console.log(error);
-              })
+         
             .then(res => {
-                console.log(res.message)
+                console.log(res)
                 this.props.history.push("/login");
             })
         }

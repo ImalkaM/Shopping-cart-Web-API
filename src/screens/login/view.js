@@ -1,14 +1,5 @@
 import Navbar from "../../common/navbar";
 import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-// import Button from "@material-ui/core/Button";
-// import TextField from "@material-ui/core/TextField";
-// import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import Checkbox from "@material-ui/core/Checkbox";
-// import Link from "@material-ui/core/Link";
-// import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -30,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn(props) {
   const classes = useStyles();
 
   return (
@@ -43,21 +34,18 @@ export default function SignIn() {
           </Typography>
           <form className={classes.form}>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Username</Form.Label>
-              <Form.Control type="text" />
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="text" name="email" onChange={props.handleLoginData} value={props.state.email}/>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" />
+              <Form.Control type="password" name="password" onChange={props.handleLoginData} value={props.state.password} />
             </Form.Group>
-            {/* <Form.Group controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Keep Me Logged in" />
-            </Form.Group> */}
-            <Button variant="primary" size="sm" className="loginbtn">
+            <Button variant="primary" size="sm" className="loginbtn" onClick={props.handleLogin}>
               Log in
             </Button>
               <hr className="seperator" />
-            <Button variant="primary" size="sm" className="login-fb">
+            <Button variant="primary" size="sm" className="login-fb" >
               Log in with Facebook
             </Button>
             <div className="no-accont"><p>Don't have an account ? Get your <a href="/register">Free account Now</a></p></div>
