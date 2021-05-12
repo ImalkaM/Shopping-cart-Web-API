@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import View from "./view"
+import axios from 'axios';
+import {API_URL} from "../../api_url"
 
 class Checkout extends Component {
 
@@ -8,7 +10,22 @@ class Checkout extends Component {
         this.state = {
            UsershippingDetails: {},
            shippindDetailPopUp: false,
+           cartItems: []
         };
+    }
+
+    componentDidMount() {
+        let userId = JSON.parse(localStorage.getItem("document"));
+        axios.post(API_URL + 'api/carts/myCart/', {
+            userId: userId.uId,
+        })
+        .then(res => {
+            console.log(res.data);
+            this.setState(() => ({ cartItems: res.data}));
+        })
+        .catch(error => { 
+            alert(error.message)
+        });
     }
 
     handlePay = () => {

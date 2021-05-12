@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function View() {
+export default function View(props) {
   const classes = useStyles();
 
   return (
@@ -46,10 +46,6 @@ export default function View() {
                     src="https://images.pexels.com/photos/3881247/pexels-photo-3881247.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500%20500w,%20https://images.pexels.com/photos/3881247/pexels-photo-3881247.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500%201000w"
                     alt="First slide"
                   />
-                  {/* <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                  </Carousel.Caption> */}
                 </Carousel.Item>
                 <Carousel.Item className="carouselItem">
                   <img
@@ -57,10 +53,6 @@ export default function View() {
                     src="https://images.pexels.com/photos/4546132/pexels-photo-4546132.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500%20500w,%20https://images.pexels.com/photos/4546132/pexels-photo-4546132.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500%201000w"
                     alt="Second slide"
                   />
-                  {/* <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  </Carousel.Caption> */}
                 </Carousel.Item>
                 <Carousel.Item className="carouselItem">
                   <img
@@ -68,27 +60,11 @@ export default function View() {
                     src="https://images.pexels.com/photos/4197564/pexels-photo-4197564.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500%20500w,%20https://images.pexels.com/photos/4197564/pexels-photo-4197564.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500%201000w\"
                     alt="Third slide"
                   />
-
-                  {/* <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                  </Carousel.Caption> */}
                 </Carousel.Item>
               </Carousel>
             </Grid>
             <Grid container spacing={3} className="items">
-              <Grid item xs={12} sm={6} md={4} lg={3}>
-                <CartItem />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4} lg={3}>
-                <CartItem />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4} lg={3}>
-                <CartItem />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4} lg={3}>
-                <CartItem />
-              </Grid>
+              {props.state.products.length !== 0 ? props.state.products.map((product)=><Grid item xs={12} sm={6} md={4} lg={3}><CartItem item={product} handleItemClick={props.handleItemClick}/></Grid>) : null }
             </Grid>
           </div>
         </Typography>

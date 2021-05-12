@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%"
   },
   tableRow: {
-    float:"right"
+    float: "right"
   },
   subtotal: {
     fontWeight: 650
@@ -82,123 +82,95 @@ export default function View(props) {
   return (
     <React.Fragment>
       <Navbar />
-      <Shipping 
-        open={props.state.shippindDetailPopUp} 
-        UsershippingDetails={props.state.UsershippingDetails} 
+      <Shipping
+        open={props.state.shippindDetailPopUp}
+        UsershippingDetails={props.state.UsershippingDetails}
         onClose={props.handleClose}
       />
       <Container maxWidth="lg" >
         <div className={classes.root}>
           <Grid xs={12} sm={12} md={12} lg={12}>
-            <Typography variant="h4" className={classes.welcomMessage}> 1 item in your cart </Typography>
+            <Typography variant="h4" className={classes.welcomMessage}>{props.state.cartItems.length + " "}item in your cart </Typography>
           </Grid>
           <Grid container spacing={3}>
             <Grid item xs={12} sm={8} md={8} lg={8}>
-              <div className={classes.itemCard}>
-                <CardMedia
-                  className={classes.cover}
-                  image={Pic}
-                  title="Live from space album cover"
-                />
-                <div className={classes.details}>
-                  <CardContent className={classes.content}>
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={8} md={8} lg={8} >
-                        <Typography component="h5" variant="h5"> Lizard </Typography>
-                        <Typography variant="subtitle1" color="textSecondary"> Lizards are a widespread group of squamate reptiles, with over 6,000 species. </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={4} md={4} lg={4}>
-                        <div style={{ textAlign: "center" }}>
-                          <DropdownButton id="dropdown-basic-button" title="Quantity" variant="secondary">
-                            <Dropdown.Item href="#/action-1">1</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">2</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">3</Dropdown.Item>
-                          </DropdownButton>
-                        </div>
-                      </Grid>
-                    </Grid>
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={8} md={8} lg={8} >
-                        <Button variant="outline-danger">Remove</Button>
-                      </Grid>
-                      <Grid item xs={12} sm={4} md={4} lg={4}>
-                      <Typography variant="h6" color="initial" component="p" style={{ textAlign:"center" }}>USD 29.75</Typography>
-                      </Grid>
-                    </Grid>
-                  </CardContent>
-                </div>
-              </div>
-              <hr />
-              <div className={classes.itemCard}>
-                <CardMedia
-                  className={classes.cover}
-                  image={Pic}
-                  title="Live from space album cover"
-                />
-                <div className={classes.details}>
-                  <CardContent className={classes.content}>
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={8} md={8} lg={8} >
-                        <Typography component="h5" variant="h5"> Lizard </Typography>
-                        <Typography variant="subtitle1" color="textSecondary"> Lizards are a widespread group of squamate reptiles, with over 6,000 species. </Typography>
-                      </Grid>
-                      <Grid item xs={12} sm={4} md={4} lg={4}>
-                        <div style={{ textAlign: "center" }}>
-                          <DropdownButton id="dropdown-basic-button" title="Quantity" variant="secondary">
-                            <Dropdown.Item href="#/action-1">1</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">2</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">3</Dropdown.Item>
-                          </DropdownButton>
-                        </div>
-                      </Grid>
-                    </Grid>
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={8} md={8} lg={8} >
-                        <Button variant="outline-danger">Remove</Button>
-                      </Grid>
-                      <Grid item xs={12} sm={4} md={4} lg={4}>
-                      <Typography variant="h6" color="initial" component="p" style={{ textAlign:"center" }}>USD 29.75</Typography>
-                      </Grid>
-                    </Grid>
-                  </CardContent>
-                </div>
-              </div>
+              {props.state.cartItems.length !== 0 ? props.state.cartItems.map((item) => {
+                return (
+                  <React.Fragment>
+                    <div className={classes.itemCard}>
+                      <CardMedia
+                        className={classes.cover}
+                        image={item.imgUrl}
+                        title="Live from space album cover"
+                      />
+                      <div className={classes.details}>
+                        <CardContent className={classes.content}>
+                          <Grid container spacing={3}>
+                            <Grid item xs={12} sm={8} md={8} lg={8} >
+                              <Typography component="h5" variant="h5"> {item.name} </Typography>
+                              <Typography variant="subtitle1" color="textSecondary"> {item.description} </Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={4} md={4} lg={4}>
+                              <div style={{ textAlign: "center" }}>
+                                <DropdownButton id="dropdown-basic-button" title="Quantity" variant="secondary">
+                                  <Dropdown.Item href="#/action-1">1</Dropdown.Item>
+                                  <Dropdown.Item href="#/action-2">2</Dropdown.Item>
+                                  <Dropdown.Item href="#/action-3">3</Dropdown.Item>
+                                </DropdownButton>
+                              </div>
+                            </Grid>
+                          </Grid>
+                          <Grid container spacing={3}>
+                            <Grid item xs={12} sm={8} md={8} lg={8} >
+                              <Button variant="outline-danger">Remove</Button>
+                            </Grid>
+                            <Grid item xs={12} sm={4} md={4} lg={4}>
+                              <Typography variant="h6" color="initial" component="p" style={{ textAlign: "center" }}>Rs:{item.price}/=</Typography>
+                            </Grid>
+                          </Grid>
+                        </CardContent>
+                      </div>
+                    </div>
+                    <hr />
+                  </React.Fragment>
+                )
+              }) : null}
             </Grid>
 
             {/* right side */}
             <Grid item xs={12} sm={4} md={4} lg={4}>
               <div className="pay">
                 {/* <CardActionArea> */}
-                  <CardContent>
-                    <table className={classes.table}>
-                      <tr>
+                <CardContent>
+                  <table className={classes.table}>
+                    <tr>
                       <td> <span>Item(s) total </span></td>
-                      <td  className={classes.tableRow}> <span>USD 59.09</span> </td>
-                      </tr>
-                      <tr>
+                      <td className={classes.tableRow}> <span>USD 59.09</span> </td>
+                    </tr>
+                    <tr>
                       <td> <span>Discount</span></td>
                       <td className={classes.tableRow}> <span>-USD 29.75</span> </td>
-                      </tr>
-                    </table>
-                    <hr />
-                    <table className={classes.table}>
-                      <tr>
+                    </tr>
+                  </table>
+                  <hr />
+                  <table className={classes.table}>
+                    <tr>
                       <td> <span className={classes.subtotal} >Subtotal</span></td>
-                      <td  className={classes.tableRow}> <span>USD 59.09</span> </td>
-                      </tr>
-                      <tr>
+                      <td className={classes.tableRow}> <span>USD 59.09</span> </td>
+                    </tr>
+                    <tr>
                       <td> <span>Shipping</span></td>
                       <td className={classes.tableRow}> <span>+USD 29.75</span> </td>
-                      </tr>
-                    </table>
-                    <hr />
-                    <table className={classes.table}>
-                      <tr>
+                    </tr>
+                  </table>
+                  <hr />
+                  <table className={classes.table}>
+                    <tr>
                       <td> <span className={classes.subtotal} >Total (1 Item)</span></td>
-                      <td  className={classes.tableRow}> <Typography variant="h6" color="initial" component="p">USD 29.75</Typography> </td>
-                      </tr>
-                    </table>
-                  </CardContent>
+                      <td className={classes.tableRow}> <Typography variant="h6" color="initial" component="p">USD 29.75</Typography> </td>
+                    </tr>
+                  </table>
+                </CardContent>
                 {/* </CardActionArea> */}
                 <CardActions className={classes.cardAction}>
                   <Button

@@ -31,47 +31,31 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function View() {
+export default function CartItem(props) {
   const classes = useStyles();
-
+  
   return (
     <Card className="itemCard" >
-      <CardActionArea>
+      <CardActionArea onClick={()=>props.handleItemClick(props.item)}>
         <CardMedia
           className={classes.media}
-          image={MealPhoto}
+          image={props.item.imgUrl}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h6" className={classes.itemName}>
-            Lizard
+            {props.item.name}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p" style={{ marginBottom:"0.35em"}}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species.
-          </Typography>
-          <Typography variant="h6" color="initial" component="p">
-            USD 29.75
-          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p" style={{ marginBottom: "0.35em" }}>{props.item.description}</Typography>
+          <Typography variant="h6" color="initial" component="p">Rs:{props.item.price}/=</Typography>
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.cardAction}>
-        {/* <OverlayTrigger
-          overlay={<Tooltip id="tooltip-disabled">Add to cart</Tooltip>}
-          placement="bottom"
-        >
-          <IconButton
-            aria-label="AddShoppingCartIcon"
-            className={classes.addToCart_btn}
-          >
-            <AddShoppingCartIcon />
-          </IconButton>
-        </OverlayTrigger> */} 
         <Button
           className={classes.addToCart_btn}
           startIcon={<AddShoppingCartIcon />}
         >
-          add to cart
+          Add to cart
         </Button>
       </CardActions>
     </Card>

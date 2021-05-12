@@ -13,8 +13,8 @@ const route = () => (
         <Route path="/" exact component={Dashboard} />
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
-        <Route path="/cart" exact component={Cart} />
-        <Route path="/listing" exact component={Listing} />
+        <Route path="/cart/" exact component={Cart} />
+        <Route path="/listing/:id" exact component={Listing} />
     </BrowserRouter>
 )
 
