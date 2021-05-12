@@ -47,22 +47,24 @@ class listing extends Component {
 
     handleAddToCart = () => {
         let userId = JSON.parse(localStorage.getItem("document"));
-        axios.post(API_URL + 'api/carts', {
-            userId: userId.uId,
-            name: this.state.itemDetails.name,
-            category: this.state.itemDetails.category,
-            price: this.state.itemDetails.price,
-            imgUrl: this.state.itemDetails.imgUrl,
-            description: this.state.itemDetails.description,
-        })
-        .then(res => {
-            
-            alert("Item added to cart")
-            this.props.history.push("/cart")
-        })
-        .catch(error => { 
-            alert(error.message)
-        });
+        if(userId !== null) {
+            axios.post(API_URL + 'api/carts', {
+                userId: userId.uId,
+                name: this.state.itemDetails.name,
+                category: this.state.itemDetails.category,
+                price: this.state.itemDetails.price,
+                imgUrl: this.state.itemDetails.imgUrl,
+                description: this.state.itemDetails.description,
+            })
+            .then(res => {
+                
+                alert("Item added to cart")
+                this.props.history.push("/cart")
+            })
+            .catch(error => { 
+                alert(error.message)
+            }); 
+        }
     }
 
     render(){

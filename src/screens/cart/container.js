@@ -15,17 +15,19 @@ class Checkout extends Component {
     }
 
     componentDidMount() {
-        let userId = JSON.parse(localStorage.getItem("document"));
-        axios.post(API_URL + 'api/carts/myCart', {
-            userId: userId.uId,
-        })
-        .then(res => {
-            console.log(res.data);
-            this.setState(() => ({ cartItems: res.data}));
-        })
-        .catch(error => { 
-            alert(error.message)
-        });
+        let data = JSON.parse(localStorage.getItem("document"));
+        if(data !== null) {
+            axios.post(API_URL + 'api/carts/myCart', {
+                userId: data.uId,
+            })
+            .then(res => {
+                console.log(res.data);
+                this.setState(() => ({ cartItems: res.data}));
+            })
+            .catch(error => { 
+                alert(error.message)
+            });
+        }
     }
 
     handlePay = () => {
