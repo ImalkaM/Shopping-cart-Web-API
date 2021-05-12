@@ -31,7 +31,7 @@ export default function View(props) {
 
   return (
     <React.Fragment>
-      <Navbar />
+      <Navbar headerName="Shop"/>
       <Container maxWidth="lg">
         <Typography component="div">
           <div className={classes.root}>

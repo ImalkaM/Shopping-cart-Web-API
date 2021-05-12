@@ -49,6 +49,9 @@ class Dashboard extends Component{
                 alert(error.message)
             });
         }
+        else{
+            alert("You need to login")
+        }
     }
 
     render() {

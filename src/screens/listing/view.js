@@ -23,7 +23,7 @@ export default function View(props){
 
     return (
         <Fragment>
-            <Navbar />
+            <Navbar headerName="Listing"/>
             <Shipping  
                 open={props.state.shippindDetailPopUp} 
                 UsershippingDetails={props.state.UsershippingDetails} 

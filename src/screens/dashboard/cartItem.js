@@ -8,6 +8,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import ReadMoreReact from 'read-more-react';
 import "./style.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +46,13 @@ export default function CartItem(props) {
           <Typography gutterBottom variant="h6" className={classes.itemName}>
             {props.item.name}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p" style={{ marginBottom: "0.35em" }}>{props.item.description}</Typography>
+          <ReadMoreReact 
+            text={props.item.description}
+            min={80}
+            ideal={100}
+            max={200}
+            readMoreText=""/>
+          <Typography variant="body2" color="textSecondary" component="p" style={{ marginBottom: "0.35em" }}>read more</Typography>
           <Typography variant="h6" color="initial" component="p">Rs:{props.item.price}/=</Typography>
         </CardContent>
       </CardActionArea>

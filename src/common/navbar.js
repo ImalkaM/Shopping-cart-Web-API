@@ -11,7 +11,7 @@ import {API_URL} from "../api_url"
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 
-export default function Navbar() {
+export default function Navbar(props) {
   const [token, setToken] = React.useState();
   const [loop, setLoop] = React.useState(true);
   const [cartItems, setCartItems] = React.useState([]);
@@ -55,7 +55,7 @@ export default function Navbar() {
       <AppBar position="fixed" className="navigation">
         <Toolbar>
           <div>
-            <h2>Shop Cart</h2>
+            <h2>{props.headerName}</h2>
           </div>
           <div className="sigup">
             {token ? (

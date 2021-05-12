@@ -81,7 +81,7 @@ export default function View(props) {
 
   return (
     <React.Fragment>
-      <Navbar />
+      <Navbar headerName="Shop Cart"/>
       <Shipping
         open={props.state.shippindDetailPopUp}
         UsershippingDetails={props.state.UsershippingDetails}

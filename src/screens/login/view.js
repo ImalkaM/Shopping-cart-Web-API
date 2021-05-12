@@ -26,7 +26,7 @@ export default function SignIn(props) {
 
   return (
     <div>
-      <Navbar />
+      <Navbar headerName="Login"/>
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <Typography component="h1" variant="h5">
