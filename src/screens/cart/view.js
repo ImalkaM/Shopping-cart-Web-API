@@ -122,7 +122,7 @@ export default function View(props) {
                           </Grid>
                           <Grid container spacing={3}>
                             <Grid item xs={12} sm={8} md={8} lg={8} >
-                              <Button variant="outline-danger">Remove</Button>
+                              <Button variant="outline-danger" onClick={()=>props.handleDeletItem(item._id)}>Remove</Button>
                             </Grid>
                             <Grid item xs={12} sm={4} md={4} lg={4}>
                               <Typography variant="h6" color="initial" component="p" style={{ textAlign: "center" }}>Rs:{item.price}/=</Typography>

@@ -16,7 +16,7 @@ class Checkout extends Component {
 
     componentDidMount() {
         let userId = JSON.parse(localStorage.getItem("document"));
-        axios.post(API_URL + 'api/carts/myCart/', {
+        axios.post(API_URL + 'api/carts/myCart', {
             userId: userId.uId,
         })
         .then(res => {
@@ -41,12 +41,23 @@ class Checkout extends Component {
         });
     }
 
+    handleDeletItem = (id) => {
+        axios.delete(API_URL + 'api/carts/'+id)
+        .then(res => {
+            window.location.reload();
+        })
+        .catch(error => { 
+            alert(error.message)
+        });
+    }
+
     render(){
         return(
             <View 
                 state={this.state}
                 handlePay={this.handlePay}
                 handleClose={this.handleClose}
+                handleDeletItem={this.handleDeletItem}
             />
         );
     }

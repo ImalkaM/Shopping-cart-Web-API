@@ -6,13 +6,15 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Badge from "@material-ui/core/Badge";
 import { withStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
-import { DropdownButton, Dropdown } from "react-bootstrap";
+import axios from 'axios';
+import {API_URL} from "../api_url"
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 
 export default function Navbar() {
   const [token, setToken] = React.useState();
   const [loop, setLoop] = React.useState(true);
+  const [cartItems, setCartItems] = React.useState([]);
   const StyledBadge = withStyles((theme) => ({
     badge: {
       right: -3,
@@ -27,6 +29,18 @@ export default function Navbar() {
       let dataset = JSON.parse(localStorage.getItem("document"));
       setToken(dataset);
       setLoop(false);
+
+      let userId = JSON.parse(localStorage.getItem("document"));
+      axios.post(API_URL + 'api/carts/myCart', {
+          userId: userId.uId,
+      })
+      .then(res => {
+          setCartItems(res.data)
+      })
+      .catch(error => { 
+          alert(error.message)
+      });
+
     }
   });
 
@@ -68,7 +82,7 @@ export default function Navbar() {
               className="ShoppingCartIcon"
               href="/cart"
             >
-              <StyledBadge badgeContent={1} color="secondary">
+              <StyledBadge badgeContent={cartItems.length !== 0 ? cartItems.length : 0 } color="secondary">
                 <ShoppingCartIcon className="CartIcon" fontSize="medium" />
               </StyledBadge>
             </IconButton>

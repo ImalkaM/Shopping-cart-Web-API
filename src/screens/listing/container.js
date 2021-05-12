@@ -47,8 +47,7 @@ class listing extends Component {
 
     handleAddToCart = () => {
         let userId = JSON.parse(localStorage.getItem("document"));
-
-        axios.post(API_URL + 'api/carts/', {
+        axios.post(API_URL + 'api/carts', {
             userId: userId.uId,
             name: this.state.itemDetails.name,
             category: this.state.itemDetails.category,
@@ -59,9 +58,7 @@ class listing extends Component {
         .then(res => {
             
             alert("Item added to cart")
-            this.props.history.push({
-                pathname: "/cart/"+userId.uId,
-            })
+            this.props.history.push("/cart")
         })
         .catch(error => { 
             alert(error.message)
