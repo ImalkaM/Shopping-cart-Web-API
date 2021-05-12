@@ -6,7 +6,6 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import MealPhoto from "../../common/assets/images/meal.png";
 import Button from "@material-ui/core/Button";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import "./style.css";
@@ -54,6 +53,7 @@ export default function CartItem(props) {
         <Button
           className={classes.addToCart_btn}
           startIcon={<AddShoppingCartIcon />}
+          onClick={()=>props.handleAddToCart(props.item)}
         >
           Add to cart
         </Button>

@@ -30,11 +30,31 @@ class Dashboard extends Component{
         })
     }
 
+    handleAddToCart = (item) => {
+        let userId = JSON.parse(localStorage.getItem("document"));
+        axios.post(API_URL + 'api/carts', {
+            userId: userId.uId,
+            name: item.name,
+            category: item.category,
+            price: item.price,
+            imgUrl: item.imgUrl,
+            description: item.description,
+        })
+        .then(res => {
+            alert("Item added to cart")
+            this.props.history.push("/cart")
+        }) 
+        .catch(error => { 
+            alert(error.message)
+        });
+    }
+
     render() {
         return(
             <View 
                 state={this.state}
                 handleItemClick={this.handleItemClick}
+                handleAddToCart={this.handleAddToCart}
             />
         )
     }

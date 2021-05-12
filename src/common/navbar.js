@@ -30,17 +30,18 @@ export default function Navbar() {
       setToken(dataset);
       setLoop(false);
 
-      let userId = JSON.parse(localStorage.getItem("document"));
-      axios.post(API_URL + 'api/carts/myCart', {
-          userId: userId.uId,
-      })
-      .then(res => {
-          setCartItems(res.data)
-      })
-      .catch(error => { 
-          alert(error.message)
-      });
-
+      if(dataset !== null ) {
+        let userId = JSON.parse(localStorage.getItem("document"));
+        axios.post(API_URL + 'api/carts/myCart', {
+            userId: userId.uId,
+        })
+        .then(res => {
+            setCartItems(res.data)
+        })
+        .catch(error => { 
+            alert(error.message)
+        });
+      }
     }
   });
 

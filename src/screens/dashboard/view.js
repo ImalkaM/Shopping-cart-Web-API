@@ -64,7 +64,7 @@ export default function View(props) {
               </Carousel>
             </Grid>
             <Grid container spacing={3} className="items">
-              {props.state.products.length !== 0 ? props.state.products.map((product)=><Grid item xs={12} sm={6} md={4} lg={3}><CartItem item={product} handleItemClick={props.handleItemClick}/></Grid>) : null }
+              {props.state.products.length !== 0 ? props.state.products.map((product)=><Grid item xs={12} sm={6} md={4} lg={3}><CartItem item={product} handleItemClick={props.handleItemClick} handleAddToCart={props.handleAddToCart}/></Grid>) : null }
             </Grid>
           </div>
         </Typography>
