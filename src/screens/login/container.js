@@ -31,6 +31,7 @@ class Login extends Component{
             .then(res => {
                 this.setState(() => ({ response: res.data}));
                 localStorage.setItem('document',JSON.stringify(res.data));
+                this.props.history.push("/");
             })
             .catch(error => { 
                 this.setState({

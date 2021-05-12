@@ -48,15 +48,13 @@ class Register extends Component {
             return
         }
 
-        if(this.state.firstname !== "" && this.state.lastname !== "" && this.state.mobile !== "" && this.state.email !== "" && this.state.password !== "" && this.state.conpass !== "" ) {
+        if(this.state.username !== "" && this.state.mobile !== "" && this.state.email !== "" && this.state.password !== "" && this.state.conpass !== "" ) {
             axios.post('http://localhost:5000/api/users', {
-                userName: this.state.firstname+ " " +this.state.lastname,
+                userName: this.state.username,
                 email: this.state.email,
                 password: this.state.password
             })
-         
             .then(res => {
-                console.log(res)
                 this.props.history.push("/login");
             })
         }

@@ -56,22 +56,6 @@ export default function SignInSide(props) {
             <div className="hm-col2">
               <div className="register-form-wrap">
                 <div className="l-form">
-                  {/* <Form.Row>
-                    <Grid container>
-                      <Grid xs={12} sm={12} md={6} lg={6}>
-                        <Form.Group>
-                          <Form.Label>First Name</Form.Label>
-                          <Form.Control type="text" name="firstname" onChange={props.handleRegisterForm} value={props.state.firstname} />
-                        </Form.Group>
-                      </Grid>
-                      <Grid xs={12} sm={12} md={6} lg={6}>
-                        <Form.Group>
-                          <Form.Label>Last Name</Form.Label>
-                          <Form.Control type="text" name="lastname" onChange={props.handleRegisterForm} value={props.state.lastname} />
-                        </Form.Group>
-                      </Grid>
-                    </Grid>
-                  </Form.Row> */}
                   <Form.Row>
                   <Form.Group>
                       <Form.Label>User Name</Form.Label>
