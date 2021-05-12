@@ -50,12 +50,19 @@ const useStyles = makeStyles((theme) => ({
 
 const steps = ["Shipping address", "Payment details", "Review your order"];
 
-function getStepContent(step) {
+function getStepContent(step, props) {
+  console.log(props, "asdadas")
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <AddressForm 
+                user={props.state} 
+                handleAddressForm={props.handleAddressForm}
+              />;
     case 1:
-      return <PaymentForm />;
+      return <PaymentForm 
+                card={props.state} 
+                handlePaymentForm={props.handlePaymentForm}
+              />;
     case 2:
       return <Review />;
     default:
@@ -64,7 +71,7 @@ function getStepContent(step) {
 }
 
 export default function Checkout(props) {
-
+console.log(props, "asdd")
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -76,11 +83,16 @@ export default function Checkout(props) {
     setActiveStep(activeStep - 1);
   };
 
+  const handlePlaceorder = () => {
+    props.handlePlaceorder();
+    setActiveStep(activeStep + 1);
+  }
+
   return (
     <Fragment>
       <div>
         <CssBaseline />
-        <Dialog open={props.open} onClose={props.onClose} maxWidth="lg">
+        <Dialog open={props.open} onClose={props.handleClose} maxWidth="lg">
           <DialogContent>
             <DialogContentText>
               <main className={classes.layout}>
@@ -110,7 +122,7 @@ export default function Checkout(props) {
                       </Fragment>
                     ) : (
                       <Fragment>
-                        {getStepContent(activeStep)}
+                        {getStepContent(activeStep, props)}
                         <div className={classes.buttons}>
                           {activeStep !== 0 && (
                             <Button
@@ -123,7 +135,7 @@ export default function Checkout(props) {
                           <Button
                             variant="contained"
                             color="primary"
-                            onClick={handleNext}
+                            onClick={activeStep === steps.length - 1 ? handlePlaceorder : handleNext}
                             className={classes.button}
                           >
                             {activeStep === steps.length - 1

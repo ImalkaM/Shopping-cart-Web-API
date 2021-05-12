@@ -9,8 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import Navbar from "../../common/navbar";
 import { Container } from "@material-ui/core"
 import { DropdownButton, Dropdown, Button } from "react-bootstrap"
-import Pic from "../../common/assets/images/meal.png"
-import Shipping from "../../common/shipping/checkout"
+import Shipping from "../../common/shipping/container"
 import "./style.css"
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -81,11 +80,10 @@ export default function View(props) {
 
   return (
     <React.Fragment>
-      <Navbar headerName="Shop Cart"/>
+      <Navbar headerName="Shop Cart" />
       <Shipping
         open={props.state.shippindDetailPopUp}
-        UsershippingDetails={props.state.UsershippingDetails}
-        onClose={props.handleClose}
+        handleClose={props.handleClose}
       />
       <Container maxWidth="lg" >
         <div className={classes.root}>
@@ -122,7 +120,7 @@ export default function View(props) {
                           </Grid>
                           <Grid container spacing={3}>
                             <Grid item xs={12} sm={8} md={8} lg={8} >
-                              <Button variant="outline-danger" onClick={()=>props.handleDeletItem(item._id)}>Remove</Button>
+                              <Button variant="outline-danger" onClick={() => props.handleDeletItem(item._id)}>Remove</Button>
                             </Grid>
                             <Grid item xs={12} sm={4} md={4} lg={4}>
                               <Typography variant="h6" color="initial" component="p" style={{ textAlign: "center" }}>Rs:{item.price}/=</Typography>
@@ -138,51 +136,53 @@ export default function View(props) {
             </Grid>
 
             {/* right side */}
-            <Grid item xs={12} sm={4} md={4} lg={4}>
-              <div className="pay">
-                {/* <CardActionArea> */}
-                <CardContent>
-                  <table className={classes.table}>
-                    <tr>
-                      <td> <span>Item(s) total </span></td>
-                      <td className={classes.tableRow}> <span>USD 59.09</span> </td>
-                    </tr>
-                    <tr>
-                      <td> <span>Discount</span></td>
-                      <td className={classes.tableRow}> <span>-USD 29.75</span> </td>
-                    </tr>
-                  </table>
-                  <hr />
-                  <table className={classes.table}>
-                    <tr>
-                      <td> <span className={classes.subtotal} >Subtotal</span></td>
-                      <td className={classes.tableRow}> <span>USD 59.09</span> </td>
-                    </tr>
-                    <tr>
-                      <td> <span>Shipping</span></td>
-                      <td className={classes.tableRow}> <span>+USD 29.75</span> </td>
-                    </tr>
-                  </table>
-                  <hr />
-                  <table className={classes.table}>
-                    <tr>
-                      <td> <span className={classes.subtotal} >Total (1 Item)</span></td>
-                      <td className={classes.tableRow}> <Typography variant="h6" color="initial" component="p">USD 29.75</Typography> </td>
-                    </tr>
-                  </table>
-                </CardContent>
-                {/* </CardActionArea> */}
-                <CardActions className={classes.cardAction}>
-                  <Button
-                    className={classes.addToCart_btn}
-                    startIcon={<AddShoppingCartIcon />}
-                    onClick={props.handlePay}
-                  >
-                    Pay
-                  </Button>
-                </CardActions>
-              </div>
-            </Grid>
+            {props.state.cartItems.length !== 0 ?
+              <Grid item xs={12} sm={4} md={4} lg={4}>
+                <div className="pay">
+                  {/* <CardActionArea> */}
+                  <CardContent>
+                    <table className={classes.table}>
+                      <tr>
+                        <td> <span>Item(s) total </span></td>
+                        <td className={classes.tableRow}> <span>USD 59.09</span> </td>
+                      </tr>
+                      <tr>
+                        <td> <span>Discount</span></td>
+                        <td className={classes.tableRow}> <span>-USD 29.75</span> </td>
+                      </tr>
+                    </table>
+                    <hr />
+                    <table className={classes.table}>
+                      <tr>
+                        <td> <span className={classes.subtotal} >Subtotal</span></td>
+                        <td className={classes.tableRow}> <span>USD 59.09</span> </td>
+                      </tr>
+                      <tr>
+                        <td> <span>Shipping</span></td>
+                        <td className={classes.tableRow}> <span>+USD 29.75</span> </td>
+                      </tr>
+                    </table>
+                    <hr />
+                    <table className={classes.table}>
+                      <tr>
+                        <td> <span className={classes.subtotal} >Total (1 Item)</span></td>
+                        <td className={classes.tableRow}> <Typography variant="h6" color="initial" component="p">USD 29.75</Typography> </td>
+                      </tr>
+                    </table>
+                  </CardContent>
+                  {/* </CardActionArea> */}
+                  <CardActions className={classes.cardAction}>
+                    <Button
+                      className={classes.addToCart_btn}
+                      startIcon={<AddShoppingCartIcon />}
+                      onClick={props.handlePay}
+                    >
+                      Pay
+                </Button>
+                  </CardActions>
+                </div>
+              </Grid>
+              : null}
           </Grid>
         </div>
       </Container>

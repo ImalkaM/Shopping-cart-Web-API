@@ -6,7 +6,7 @@ import Select from '@material-ui/core/Select';
 import Container from "@material-ui/core/Container"
 import Button from "@material-ui/core/Button"
 import Navbar from "../../common/navbar"
-import Shipping from "../../common/shipping/checkout"
+import Shipping from "../../common/shipping/container"
 import "./style.css"
 
 
@@ -26,8 +26,7 @@ export default function View(props){
             <Navbar headerName="Listing"/>
             <Shipping  
                 open={props.state.shippindDetailPopUp} 
-                UsershippingDetails={props.state.UsershippingDetails} 
-                onClose={props.handleClose}
+                handleClose={props.handleClose}
             />
             <Container maxWidth="lg">
                 <div className="root">
