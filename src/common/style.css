@@ -1,0 +1,27 @@
+.navigation {
+    height:12vh;
+}
+.sigup{
+    margin-left: auto;
+}
+.MuiAppBar-colorPrimary {
+    background-color: #1976d2 !important;
+}
+.MuiToolbar-regular {
+    padding: 22px !important;
+}
+.ShoppingCartIcon {
+    margin-left: 20px !important;
+}
+.CartIcon {
+    color: white !important;
+}
+.login-btn {
+    background-color: #1976d2 ;
+    color: white !important;
+
+}
+.register-btn {
+    margin-left: 10px !important;
+    color: white !important;
+}
